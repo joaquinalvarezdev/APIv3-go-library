@@ -21,10 +21,10 @@ type SendSMTPEmail struct {
 	Attachment SendSMTPEmailAttachment `json:"attachment"`
 
 	// bcc
-	Bcc SendSMTPEmailBcc `json:"bcc"`
+	Bcc SendSMTPEmailBcc `json:"bcc,omitempty"`
 
 	// cc
-	Cc SendSMTPEmailCc `json:"cc"`
+	Cc SendSMTPEmailCc `json:"cc,omitempty"`
 
 	// headers
 	Headers map[string]string `json:"headers,omitempty"`
@@ -50,6 +50,10 @@ type SendSMTPEmail struct {
 	// to
 	// Required: true
 	To SendSMTPEmailTo `json:"to"`
+
+	// tags
+	// Required: false
+	Tags []string `json:"tags"`
 }
 
 // Validate validates this send Smtp email
